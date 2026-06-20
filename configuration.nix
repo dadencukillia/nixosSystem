@@ -55,6 +55,10 @@
     allowedUDPPorts = [ ];
   };
 
+  programs = {
+    hyprland.enable = true;
+  };
+
   system.stateVersion = "26.05"; # Don't change it
 }
 
