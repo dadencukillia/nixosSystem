@@ -1,0 +1,1 @@
+1 ssh@192.168.0.103 -p 2222 tee /sdcard/Download/flake.nix
