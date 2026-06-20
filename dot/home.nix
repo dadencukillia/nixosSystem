@@ -10,17 +10,15 @@
       zenbrowser
     ];
 
-    programs = {
-      git = import ./personalOptions/git.nix;
-      kitty = import ./ricePrograms/kitty.nix;
-    };
-
-    wayland.windowManager.hyprland = {
-      enable = true;
-    };
-
     stateVersion = "26.05";
   };
+
+  wayland.windowManager.hyprland = import ./hyprland/hyprland.nix;
+
+  programs = {
+    git = import ./personalOptions/git.nix;
+    kitty = import ./ricePrograms/kitty.nix;
+  }; 
 
   programs.home-manager.enable = true;
 }

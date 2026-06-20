@@ -1,10 +1,12 @@
 {
   enable = true;
-  username = "Illia Diadenchuk";
-  userEmail = "dadencukillia@gmail.com";
+  settings = {
+    user.name = "Illia Diadenchuk";
+    user.email = "dadencukillia@gmail.com";
 
-  extraConfig = {
-    init.defaultBranch = "main";
-    core.editor = "nvim";
+    extraConfig = {
+      init.defaultBranch = "main";
+      core.editor = "nvim";
+    };
   };
 }
