@@ -1,3 +1,5 @@
+{ term, ... }:
+
 {
   enable = true;
   configType = "hyprlang";
@@ -5,7 +7,7 @@
     "$mod" = "SUPER";
 
     bind = [
-      "$mod, Q, exec, kitty"
+      "$mod, Q, exec, ${ term }"
       "$mod SHIFT, X, killactive"
       "$mod SHIFT, M, exit"
       "$mod, left, movefocus, l"

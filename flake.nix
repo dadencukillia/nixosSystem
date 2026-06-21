@@ -5,19 +5,23 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     homemanager.url = "github:nix-community/home-manager/master";
     zenbrowser.url = "github:youwen5/zen-browser-flake";
+    apple-emoji.url = "github:oxcl/nix-flake-apple-emoji";
   };
 
-  outputs = { self, nixpkgs, homemanager, zenbrowser, ... }@inputs:
+  outputs = { self, nixpkgs, homemanager, zenbrowser, apple-emoji, ... }@inputs:
   let
     dotOpts = import ./options.nix;
   in {
     nixosConfigurations = {
       linuxSystem = nixpkgs.lib.nixosSystem {
         system = dotOpts.system;
-	
+
 	modules = [
 	  ./hardware-configuration.nix
 	  ./configuration.nix
+	  {
+	    nixpkgs.overlays = [ apple-emoji.overlays.default ];
+	  }
 
 	  homemanager.nixosModules.home-manager
 	  {
@@ -26,6 +30,7 @@
 	    home-manager.extraSpecialArgs = {
 	      zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
 	      inherit (dotOpts) username;
+	      inherit apple-emoji;
 	    };
 
 	    home-manager.users = {

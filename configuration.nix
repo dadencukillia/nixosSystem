@@ -4,10 +4,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Boot properties
   boot.loader = {
@@ -53,6 +52,7 @@
   networking.firewall = {
     allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
+    allowPing = false;
   };
 
   programs = {
