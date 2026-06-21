@@ -9,7 +9,7 @@
     nvchad.url = "github:nix-community/nix4nvchad";
   };
 
-  outputs = { self, nixpkgs, homemanager, zenbrowser, apple-emoji, nvchad, ... }@inputs:
+  outputs = { nixpkgs, homemanager, zenbrowser, apple-emoji, nvchad, ... }@inputs:
   let
     dotOpts = import ./options.nix;
   in {
@@ -17,29 +17,28 @@
       linuxSystem = nixpkgs.lib.nixosSystem {
         system = dotOpts.system;
 
-	modules = [
-	  ./hardware-configuration.nix
-	  ./configuration.nix
-	  {
-	    nixpkgs.overlays = [ apple-emoji.overlays.default ];
-	  }
+        modules = [
+          ./hardware-configuration.nix
+          ./configuration.nix
+          {
+            nixpkgs.overlays = [ apple-emoji.overlays.default ];
+          }
+          homemanager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
+              inherit (dotOpts) username;
+              inherit apple-emoji;
+              inherit nvchad;
+            };
 
-	  homemanager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.extraSpecialArgs = {
-	      zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
-	      inherit (dotOpts) username;
-	      inherit apple-emoji;
-	      inherit nvchad;
-	    };
-
-	    home-manager.users = {
-	      ${dotOpts.username} = import ./dot/home.nix;
-              root = import ./root-home-manager.nix;
-	    };
-	  }
+            home-manager.users = {
+              ${dotOpts.username} = import ./dot/home.nix;
+                    root = import ./root-home-manager.nix;
+            };
+          }
         ];
       };
     };

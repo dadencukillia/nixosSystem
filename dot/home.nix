@@ -1,4 +1,4 @@
-{ config, pkgs, username, zenbrowser, ... }:
+{ pkgs, username, zenbrowser, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
     ./personalOptions/git.nix
     ./terms/kitty/kitty.nix
     ./hyprland/hyprland.nix
+    ./shell/shell.nix
   ];
 
   home = {

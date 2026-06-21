@@ -6,6 +6,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./aliases.nix
+    ./zsh.nix
   ];
 
   # Boot properties
@@ -37,8 +39,6 @@
     ${(import ./options.nix).username} = {
       isNormalUser = true;
       extraGroups = [ "wheel" "sudo" ];
-      packages = with pkgs; [
-      ];
     };
   };
 
