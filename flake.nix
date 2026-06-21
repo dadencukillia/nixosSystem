@@ -6,9 +6,10 @@
     homemanager.url = "github:nix-community/home-manager/master";
     zenbrowser.url = "github:youwen5/zen-browser-flake";
     apple-emoji.url = "github:oxcl/nix-flake-apple-emoji";
+    nvchad.url = "github:nix-community/nix4nvchad";
   };
 
-  outputs = { self, nixpkgs, homemanager, zenbrowser, apple-emoji, ... }@inputs:
+  outputs = { self, nixpkgs, homemanager, zenbrowser, apple-emoji, nvchad, ... }@inputs:
   let
     dotOpts = import ./options.nix;
   in {
@@ -31,10 +32,12 @@
 	      zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
 	      inherit (dotOpts) username;
 	      inherit apple-emoji;
+	      inherit nvchad;
 	    };
 
 	    home-manager.users = {
 	      ${dotOpts.username} = import ./dot/home.nix;
+              root = import ./root-home-manager.nix;
 	    };
 	  }
         ];

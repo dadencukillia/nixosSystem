@@ -3,6 +3,10 @@
 {
   imports = [
     ./fonts.nix
+    ./nvim/nvim.nix
+    ./personalOptions/git.nix
+    ./terms/kitty/kitty.nix
+    ./hyprland/hyprland.nix
   ];
 
   home = {
@@ -15,13 +19,6 @@
 
     stateVersion = "26.05";
   };
-
-  wayland.windowManager.hyprland = import ./hyprland/hyprland.nix { term = "kitty"; };
-
-  programs = {
-    git = import ./personalOptions/git.nix;
-    kitty = import ./terms/kitty/kitty.nix { inherit pkgs; };
-  }; 
 
   programs.home-manager.enable = true;
 }
