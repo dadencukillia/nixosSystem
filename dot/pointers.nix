@@ -10,13 +10,18 @@
 
   home.pointerCursor = {
     enable = true;
-    name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
     size = 16;
     gtk.enable = true;
     hyprcursor = {
       enable = true;
       size = 16;
     };
+  };
+
+  gtk.cursorTheme = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
   };
 }

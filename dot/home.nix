@@ -4,6 +4,7 @@
   imports = [
     ./fonts.nix
     ./pointers.nix
+    ./theme.nix
     ./nvim/nvim.nix
     ./personalOptions/git.nix
     ./terms/kitty/kitty.nix

@@ -1,13 +1,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ./aliases.nix
     ./zsh.nix
+    ./thunar.nix
   ];
 
   # Boot properties
