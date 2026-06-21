@@ -15,6 +15,7 @@
         "$mod, Q, exec, kitty"
         "$mod, W, exec, zen"
         "$mod, E, exec, thunar"
+        "$mod, SPACE, exec, rofi -show drun"
 
         "$mod SHIFT, X, killactive"
         "$mod SHIFT, M, exit"

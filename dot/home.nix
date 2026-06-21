@@ -10,6 +10,7 @@
     ./terms/kitty/kitty.nix
     ./hyprland/hyprland.nix
     ./shell/shell.nix
+    ./rofi/rofi.nix
   ];
 
   home = {
