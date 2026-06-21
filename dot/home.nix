@@ -6,7 +6,6 @@
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
-      kitty
       zenbrowser
     ];
 
@@ -17,7 +16,7 @@
 
   programs = {
     git = import ./personalOptions/git.nix;
-    kitty = import ./ricePrograms/kitty.nix;
+    foot = import ./term/foot/foot.nix;
   }; 
 
   programs.home-manager.enable = true;

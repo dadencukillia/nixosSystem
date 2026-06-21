@@ -1,23 +1,24 @@
 {
   enable = true;
+  configType = "hyprlang";
   settings = {
-    "$mainMod" = "SUPER";
+    "$mod" = "SUPER";
 
     bind = [
-      "$mainMod, Q, exec, kitty"
-      "$mainMod SHIFT, X, killactive"
-      "$mainMod SHIFT, M, exit"
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
-      "$mainMod, mouse_down, workspace, e+1"
-      "$mainMod, mouse_up, workspace, e-1"
+      "$mod, Q, exec, kitty"
+      "$mod SHIFT, X, killactive"
+      "$mod SHIFT, M, exit"
+      "$mod, left, movefocus, l"
+      "$mod, right, movefocus, r"
+      "$mod, up, movefocus, u"
+      "$mod, down, movefocus, d"
+      "$mod, mouse_down, workspace, e+1"
+      "$mod, mouse_up, workspace, e-1"
     ];
 
     bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
     ];
 
     monitor = [
@@ -39,8 +40,8 @@
       gaps_in = 5;
       gaps_out = 10;
       border_size = 0;
-      col.active_border = "rgb(b4befe)";
-      col.inactive_border = "rgb(6c7086)";
+      "col.active_border" = "rgb(b4befe)";
+      "col.inactive_border" = "rgb(6c7086)";
 
       layout = "dwindle";
     };

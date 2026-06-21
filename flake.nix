@@ -3,14 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    homemanager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zenbrowser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    homemanager.url = "github:nix-community/home-manager/master";
+    zenbrowser.url = "github:youwen5/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, homemanager, zenbrowser, ... }@inputs:
@@ -30,8 +24,8 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.extraSpecialArgs = {
-	      inherit zenbrowser;
-	      username = dotOpts.username;
+	      zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
+	      inherit (dotOpts) username;
 	    };
 
 	    home-manager.users = {
