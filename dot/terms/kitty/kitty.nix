@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.kitty = {
@@ -7,6 +7,7 @@
     settings = {
       font_family = "JetBrainsMono Nerd Font";
       font_size = 11;
+      background_opacity = 0.75;
       disable_ligatures = "never";
       scrollback_lines = 10000;
       enable_audio_bell = false;
