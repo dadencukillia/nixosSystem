@@ -3,6 +3,7 @@
 {
   imports = [
     ./fonts.nix
+    ./pointers.nix
     ./nvim/nvim.nix
     ./personalOptions/git.nix
     ./terms/kitty/kitty.nix
@@ -21,5 +22,6 @@
     stateVersion = "26.05";
   };
 
+  gtk.enable = true;
   programs.home-manager.enable = true;
 }

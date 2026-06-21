@@ -24,6 +24,10 @@
         "$mod, mouse:273, resizewindow"
       ];
 
+      exec-once = [
+        "hyprctl setcursor Bibata-Modern-Classic 16"
+      ];
+
       monitor = [
         ",highres,auto,1"
       ];
