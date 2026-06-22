@@ -7,11 +7,11 @@
     ./theme.nix
     ./nvim/nvim.nix
     ./personalOptions/git.nix
-    ./terms/kitty/kitty.nix
+    ./terminals/kitty/kitty.nix
     ./hyprland/hyprland.nix
     ./shell/shell.nix
-    ./rofi/rofi.nix
-    ./dunst/dunst.nix
+    ./launcher/rofi.nix
+    ./notifications/dunst.nix
     ./software/software.nix
   ];
 
@@ -19,7 +19,7 @@
     inherit username;
     homeDirectory = "/home/${username}";
 
-    packages = with pkgs; [
+    packages = [
       zenbrowser
     ];
 
