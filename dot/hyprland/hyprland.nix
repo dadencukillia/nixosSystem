@@ -27,6 +27,10 @@ let
       }
     '') workspacesMap );
 in {
+  imports = [
+    ./hyprpaper.nix
+  ];
+
   home.packages = with pkgs; [
     playerctl
     brightnessctl
