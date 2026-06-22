@@ -29,6 +29,7 @@ let
 in {
   imports = [
     ./hyprpaper.nix
+    ./hyprshot.nix
   ];
 
   home.packages = with pkgs; [
@@ -55,6 +56,10 @@ in {
         "$mod, E, exec, thunar"
         "$mod, SPACE, exec, rofi -show drun"
         "$mod, A, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+
+        "$mod, S, exec, hyprshot --freeze -m region -o ~/Pictures/Screenshots"
+        "$mod SHIFT, S, exec, hyprshot -m output -o ~/Pictures/Screenshots"
+        ", PRINT, exec, hyprshot -m output --clipboard-only"
 
         "$mod SHIFT, X, killactive"
         "$mod SHIFT, M, exit"
