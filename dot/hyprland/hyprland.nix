@@ -32,8 +32,10 @@ in {
   ];
 
   home.packages = with pkgs; [
+    wl-clipboard
     playerctl
     brightnessctl
+    cliphist
   ];
 
   wayland.windowManager.hyprland = let
@@ -52,6 +54,7 @@ in {
         "$mod, W, exec, zen"
         "$mod, E, exec, thunar"
         "$mod, SPACE, exec, rofi -show drun"
+        "$mod, A, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "$mod SHIFT, X, killactive"
         "$mod SHIFT, M, exit"
@@ -179,6 +182,8 @@ in {
 
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 16"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       monitor = [
