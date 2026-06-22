@@ -6,6 +6,8 @@
   xdg.desktopEntries = {
     "hyprpicker" = {
       name = "Hyprpicker";
+      comment = "Color picker for Hyprland";
+      genericName = "color picker";
       exec = "sh -c \"sleep 1s && hyprpicker -a -f hex\"";
       icon = "${ config.gtk.iconTheme.package }/share/icons/Adwaita/scalable/mimetypes/x-office-drawing.svg";
       terminal = false;
