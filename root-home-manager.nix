@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -16,16 +16,17 @@
   ];
 
   programs.nvchad.extraConfig = ''
+    vim.opt.wrap = false
     local on_attach = require("nvchad.configs.lspconfig").on_attach
     local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-    lsp.config("nixd", {
+    vim.lsp.config("nixd", {
       cmd = { 'nixd' },
       root_markers = { 'flake.nix' },
       filetypes = { 'nix' },
       on_attach = on_attach,
       capabilities = capabilities,
     })
-    lsp.enable("nixd")
+    vim.lsp.enable("nixd")
   '';
 }
