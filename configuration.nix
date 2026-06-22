@@ -33,8 +33,6 @@
     pulse.enable = true;
   };
 
-  # Touchpad support
-  services.libinput.enable = true;
 
   users.users = {
     ${(import ./options.nix).username} = {
@@ -55,9 +53,8 @@
     allowPing = false;
   };
 
-  programs = {
-    hyprland.enable = true;
-  };
+  services.libinput.enable = true; # Touchpad support
+  programs.hyprland.enable = true;
 
   system.stateVersion = "26.05"; # Don't change it
 }
