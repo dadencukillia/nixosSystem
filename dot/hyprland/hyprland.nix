@@ -1,12 +1,29 @@
 { pkgs, ... }:
 
-{
+let
+  hyprlandConfigSpecialWorkspaces = workspacesMap: 
+    builtins.concatStringsSep "\n" ( map (workspace: ''
+      submap = ${ workspace.workspace }Submap
+      bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
+      bind = ${ workspace.bind }, submap, reset
+      submap = reset
+
+      bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
+      bind = ${ workspace.bind }, submap, ${ workspace.workspace }Submap
+
+      exec-once = [workspace special:${ workspace.workspace }Specworkspace silent] ${ workspace.exec }
+    '') workspacesMap );
+in {
   home.packages = with pkgs; [
     playerctl
     brightnessctl
   ];
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = let
+    specialWorkspaceApps = [
+      { workspace = "discord"; bind = "$mod, F"; exec = "vesktop"; }
+    ];
+  in {
     enable = true;
     configType = "hyprlang";
     settings = {
@@ -81,13 +98,16 @@
       general = {
         border_size = 2;
         gaps_in = 10;
-        gaps_out = 10;
-        gaps_workspaces = 10;
+        gaps_workspaces = 20;
         "col.active_border" = "rgb(d79921)";
         "col.inactive_border" = "rgba(00000000)";
 
         layout = "dwindle";
       };
+
+      workspace = [
+        "s[true], gapsout:50, gapsin:15" # larger gaps for all special workspaces
+      ];
 
       decoration = {
         rounding = 6;
@@ -143,13 +163,10 @@
         "hyprctl setcursor Bibata-Modern-Classic 16"
       ];
 
-      dwindle = {
-        special_scale_factor = 0.95;
-      };
-
       monitor = [
         ",highres,auto,1"
       ];
     };
+    extraConfig = hyprlandConfigSpecialWorkspaces specialWorkspaceApps;
   };
 }
