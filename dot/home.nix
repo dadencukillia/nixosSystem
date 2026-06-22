@@ -1,11 +1,11 @@
-{ pkgs, username, zenbrowser, ... }:
+{ username, zenbrowser, ... }:
 
 {
   imports = [
     ./fonts.nix
     ./pointers.nix
     ./theme.nix
-    ./nvim/nvim.nix
+    ./editor/nvim.nix
     ./personalOptions/git.nix
     ./terminals/kitty/kitty.nix
     ./hyprland/hyprland.nix

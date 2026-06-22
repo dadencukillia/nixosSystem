@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./dot/nvim/nvim.nix
+    ./dot/editor/nvim.nix
   ];
 
   home = {
