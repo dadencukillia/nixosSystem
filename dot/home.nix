@@ -11,6 +11,7 @@
     ./hyprland/hyprland.nix
     ./shell/shell.nix
     ./rofi/rofi.nix
+    ./software/software.nix
   ];
 
   home = {

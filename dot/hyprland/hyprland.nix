@@ -6,12 +6,25 @@ let
       submap = ${ workspace.workspace }Submap
       bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
       bind = ${ workspace.bind }, submap, reset
+      windowrule {
+        name = force-app-special-${ workspace.workspace }
+        ${ workspace.filter }
+
+        workspace = special:${workspace.workspace}Specworkspace silent
+      }
+
       submap = reset
 
       bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
       bind = ${ workspace.bind }, submap, ${ workspace.workspace }Submap
 
       exec-once = [workspace special:${ workspace.workspace }Specworkspace silent] ${ workspace.exec }
+      windowrule {
+        name = force-app-special-${ workspace.workspace }
+        ${ workspace.filter }
+
+        workspace = special:${workspace.workspace}Specworkspace silent
+      }
     '') workspacesMap );
 in {
   home.packages = with pkgs; [
@@ -21,7 +34,8 @@ in {
 
   wayland.windowManager.hyprland = let
     specialWorkspaceApps = [
-      { workspace = "discord"; bind = "$mod, F"; exec = "vesktop"; }
+      { workspace = "discord"; bind = "$mod, F"; exec = "vesktop"; filter = "match:class = vesktop"; }
+      { workspace = "telegram"; bind = "$mod, T"; exec = "Telegram"; filter = "match:class = org.telegram.desktop"; }
     ];
   in {
     enable = true;
