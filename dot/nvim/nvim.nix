@@ -5,6 +5,9 @@
 
   programs.nvchad = {
     enable = true;
+    extraPackages = with pkgs; [
+      wl-clipboard
+    ];
     chadrcConfig = ''
       ---@type ChadrcConfig
       local M = {}
@@ -21,6 +24,7 @@
       return M
     '';
     extraConfig = lib.mkDefault ''
+      vim.g.clipboard = "wl-copy"
       vim.opt.clipboard = "unnamedplus"
       vim.opt.wrap = false
     '';
