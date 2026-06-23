@@ -41,10 +41,12 @@ window {
     width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
+    border: 2px 2px 5px 2px;
+    border-color: #d79921;
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               20px;
+    border-radius:               6px;
     cursor:                      "default";
     background-color:            @background;
 }
