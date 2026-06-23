@@ -53,6 +53,8 @@
     allowPing = false;
   };
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   services.libinput.enable = true; # Touchpad support
   programs.hyprland.enable = true;
 
