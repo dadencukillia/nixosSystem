@@ -6,8 +6,7 @@ let
       submap = ${ workspace.workspace }Submap
       bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
       bind = ${ workspace.bind }, submap, reset
-      unbind = $mod, mouse:272
-      unbind = $mod, mouse:273
+
       windowrule {
         name = force-app-special-${ workspace.workspace }
         ${ workspace.filter }
@@ -17,7 +16,7 @@ let
 
       submap = reset
 
-      bind = ${ workspace.bind }, togglespecialworkspace, ${ workspace.workspace }Specworkspace
+      bind = ${ workspace.bind }, workspace, special:${ workspace.workspace }Specworkspace
       bind = ${ workspace.bind }, submap, ${ workspace.workspace }Submap
 
       exec-once = [workspace special:${ workspace.workspace }Specworkspace silent] ${ workspace.exec }
