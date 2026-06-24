@@ -195,7 +195,19 @@ in {
       monitor = [
         ",highres,auto,1"
       ];
+
+      plugin = {
+        hyprbars = {
+          bar_height = 25;
+          bar_color = "rgb(d69826)";
+          bar_title_enabled = true;
+          "col.text" = "rgb(282828)";
+        };
+      };
     };
     extraConfig = hyprlandConfigSpecialWorkspaces specialWorkspaceApps;
+    plugins = [
+      # pkgs.hyprlandPlugins.hyprbars
+    ];
   };
 }
