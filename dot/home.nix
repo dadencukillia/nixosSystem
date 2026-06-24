@@ -1,4 +1,4 @@
-{ username, zenbrowser, ... }:
+{ pkgs, username, zenbrowser, ... }:
 
 {
   imports = [

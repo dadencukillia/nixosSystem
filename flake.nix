@@ -27,6 +27,7 @@
           }
           homemanager.nixosModules.home-manager
           {
+            nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
@@ -40,7 +41,7 @@
 
             home-manager.users = {
               ${dotOpts.username} = import ./dot/home.nix;
-                    root = import ./root-home-manager.nix;
+              root = import ./root-home-manager.nix;
             };
           }
         ];
