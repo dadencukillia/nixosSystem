@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     ./aliases.nix
     ./zsh.nix
-    ./thunar.nix
   ];
 
   # Boot properties
