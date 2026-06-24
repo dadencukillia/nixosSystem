@@ -1,0 +1,110 @@
+.brand-border {
+  border-radius: 6px;
+  border: 1px solid;
+  border-bottom: 3px solid;
+  border-color: var(--yellow-dim); 
+}
+
+.brand-colors {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.brand-paddings {
+  padding: 4px 10px;
+  padding-bottom: 6px;
+}
+
+.status-badge {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: var(--bg_h);
+  color: var(--fg4);
+  font-size: 16px;
+
+  &.active {
+    background-color: var(--orange);
+    color: var(--bg);
+  }
+
+  &.outlined {
+    outline: 2px solid var(--orange);
+    outline-offset: -2px;
+  }
+}
+
+.progressbar {
+  border-radius: 4px 0 0 4px;
+
+  &.orange-bar {
+    background-color: var(--orange);
+  }
+}
+
+.icon-offset {
+  padding-right: 4px;
+}
+
+window.Bar {
+  @extend .brand-border;
+  @extend .brand-colors;
+  @extend .brand-paddings;
+
+  .decorationButtons {
+    > .green {
+      background-color: var(--green);
+    }
+
+    > .orange {
+      background-color: var(--orange);
+    }
+
+    > .red {
+      background-color: var(--red);
+    }
+
+    > box {
+      border-radius: 16px;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  button.invisible, menubutton.invisible > button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+  }
+
+  popover arrow {
+    background-color: var(--yellow-dim);
+  }
+
+  popover contents {
+    @extend .brand-border;
+    @extend .brand-colors;
+    @extend .brand-paddings;
+  }
+}
+
+.musicplayer {
+  background-color: var(--yellow);
+  color: var(--bg);
+  border-radius: 100px;
+  padding: 0 15px;
+  font-weight: normal;
+  outline: none;
+
+  .icon {
+    padding-right: 10px;
+  }
+}

@@ -190,6 +190,7 @@ in {
         "hyprctl setcursor Bibata-Modern-Classic 16"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "ags run"
       ];
 
       monitor = [
