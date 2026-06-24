@@ -54,9 +54,10 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <stack
             visibleChildName={ middleWidget }
             transitionType={ Gtk.StackTransitionType.OVER_UP }
+            halign={ Gtk.Align.CENTER }
           >
-            <box $type="named" name="title"><AppTitles /></box>
-            <box $type="named" name="player"><Player  onAudioUpdate={ (p) => setMiddleWidget( p ? "player" : "title" ) } /></box>
+            <box halign={ Gtk.Align.CENTER } $type="named" name="title"><AppTitles /></box>
+            <box halign={ Gtk.Align.CENTER }$type="named" name="player"><Player  onAudioUpdate={ (p) => setMiddleWidget( p ? "player" : "title" ) } /></box>
           </stack>
         </box>
 
