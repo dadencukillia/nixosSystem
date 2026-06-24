@@ -1,4 +1,4 @@
-{ pkgs, username, zenbrowser, ... }:
+{ username, zenbrowser, ... }:
 
 {
   imports = [
@@ -14,8 +14,7 @@
     ./bar/ags.nix
     ./software/software.nix
 
-    ./personalOptions/git.nix
-    ./personalOptions/nvim.nix
+    ./personalOptions/personalOptions.nix
   ];
 
   home = {

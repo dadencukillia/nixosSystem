@@ -19,4 +19,10 @@
 
     vim.lsp.enable("ts_ls")
   '';
+
+  programs.nvchad.extraPlugins = ''
+    return {
+      { 'wakatime/vim-wakatime', lazy = false },
+    }
+  '';
 }
