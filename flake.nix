@@ -24,10 +24,10 @@
           ./configuration.nix
           {
             nixpkgs.overlays = [ apple-emoji.overlays.default ];
+            nixpkgs.config.allowUnfree = true;
           }
           homemanager.nixosModules.home-manager
           {
-            nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
