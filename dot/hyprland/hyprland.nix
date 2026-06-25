@@ -28,9 +28,17 @@ let
       }
     '') workspacesMap );
 in {
+  home.file = {
+    ".config/hypr/images" = {
+      source = ./images;
+      recursive = true;
+    };
+  };
+
   imports = [
     ./hyprpaper.nix
     ./hyprshot.nix
+    ./hyprlock.nix
   ];
 
   # Autostart after login, use root if something went wrong
@@ -64,6 +72,7 @@ in {
         "$mod, E, exec, thunar"
         "$mod, SPACE, exec, rofi -show drun"
         "$mod, A, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mod, L, exec, hyprlock"
 
         "$mod, S, exec, hyprshot --freeze -m region -o ~/Pictures/Screenshots"
         "$mod SHIFT, S, exec, hyprshot -m output -o ~/Pictures/Screenshots"

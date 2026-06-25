@@ -1,10 +1,6 @@
 { config, ... }:
 
 {
-  home.file = {
-    ".config/hypr/images/wallpaper.jpg".source = ./wallpaper.jpg;
-  };
-
   systemd.user.services.hyprpaper = {
     Unit = {
       After = [ "graphical-session.target" ];
