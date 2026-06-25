@@ -34,7 +34,7 @@ export function Player({
         } }
       >
         <box spacing={ 10 }>
-          <label label={ createBinding(player, "playbackStatus").as(p => p === AstalMpris.PlaybackStatus.PLAYING ? "" : "") } />
+          <label label={ createBinding(player, "playbackStatus").as(p => p === AstalMpris.PlaybackStatus.PLAYING ? "" : "") } />
           <label 
             class="name"
             hexpand={ false }
