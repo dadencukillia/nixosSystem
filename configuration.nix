@@ -58,6 +58,9 @@
   services.libinput.enable = true; # Touchpad support
   programs.hyprland.enable = true;
 
+  services.gvfs.enable = true; # Thunar dep
+  services.tumbler.enable = true; # Thunar dep
+
   system.stateVersion = "26.05"; # Don't change it
 }
 

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   wakatimeKey = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./secrets/wakatime-key);
@@ -17,4 +17,8 @@ in
         MERGE_MSG$
         TAG_EDITMSG$
   '';
+
+  home.packages = [
+    pkgs.wakatime-cli
+  ];
 }
