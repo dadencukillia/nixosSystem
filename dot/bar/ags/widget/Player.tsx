@@ -33,7 +33,7 @@ export function Player({
           }
         } }
       >
-        <box spacing={ 5 }>
+        <box spacing={ 10 }>
           <label label={ createBinding(player, "playbackStatus").as(p => p === AstalMpris.PlaybackStatus.PLAYING ? "" : "") } />
           <label 
             class="name"

@@ -57,7 +57,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             halign={ Gtk.Align.CENTER }
           >
             <box halign={ Gtk.Align.CENTER } $type="named" name="title"><AppTitles /></box>
-            <box halign={ Gtk.Align.CENTER }$type="named" name="player"><Player  onAudioUpdate={ (p) => setMiddleWidget( p ? "player" : "title" ) } /></box>
+            <box halign={ Gtk.Align.CENTER } $type="named" name="player"><Player  onAudioUpdate={ (p) => setMiddleWidget( p ? "player" : "title" ) } /></box>
           </stack>
         </box>
 
