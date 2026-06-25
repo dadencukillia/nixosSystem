@@ -65,12 +65,12 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           $type="end"
           orientation={ Gtk.Orientation.HORIZONTAL }
           spacing={ 10 }
+          marginStart={ 10 }
         >
           <Tray marginRight={ 10 } />
           <box
             spacing={ 5 }
             orientation={ Gtk.Orientation.HORIZONTAL }
-            marginStart={ 10 }
           >
             <Language />
             <OutputAudio />
