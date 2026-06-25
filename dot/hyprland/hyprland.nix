@@ -33,6 +33,13 @@ in {
     ./hyprshot.nix
   ];
 
+  # Autostart after login, use root if something went wrong
+  programs.zsh.loginExtra = ''
+    if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+      exec start-hyprland
+    fi
+  '';
+
   home.packages = with pkgs; [
     wl-clipboard
     playerctl
