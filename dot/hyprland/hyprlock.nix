@@ -69,6 +69,7 @@
           position = "0, 52";
           text = "$USER";
           font_size = 12;
+          color = "rgb(d5c4a1)";
         }
 
         {
