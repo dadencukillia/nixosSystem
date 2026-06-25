@@ -11,7 +11,7 @@
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = { nixpkgs, homemanager, zenbrowser, apple-emoji, nvchad, astal, ags, ... }:
+  outputs = { nixpkgs, homemanager, apple-emoji, ... }@inputs:
   let
     dotOpts = import ./options.nix;
   in {
@@ -30,17 +30,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              zenbrowser = zenbrowser.packages.${dotOpts.system}.default;
-              inherit (dotOpts) username;
-              inherit apple-emoji;
-              inherit nvchad;
-              inherit astal;
-              inherit ags;
-            };
+            home-manager.extraSpecialArgs.inputs = inputs;
 
             home-manager.users = {
-              ${dotOpts.username} = import ./dot/home.nix;
+              ${dotOpts.username} = import ./dot/home.nix dotOpts.username;
               root = import ./root-home-manager.nix;
             };
           }

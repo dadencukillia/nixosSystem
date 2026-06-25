@@ -1,4 +1,4 @@
-{ config, pkgs, apple-emoji, ... }:
+{ pkgs, ... }:
 
 {
   home = {

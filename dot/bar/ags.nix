@@ -1,19 +1,19 @@
-{ ags, astal, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [ ags.homeManagerModules.default ];
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   programs.ags = {
     enable = true;
     configDir = ./ags;
     
-    extraPackages = [
-      astal.packages.${pkgs.system}.hyprland
-      astal.packages.${pkgs.system}.tray
-      astal.packages.${pkgs.system}.bluetooth
-      astal.packages.${pkgs.system}.network
-      astal.packages.${pkgs.system}.mpris
-      astal.packages.${pkgs.system}.wireplumber
+    extraPackages = with inputs.astal.packages.${pkgs.system}; [
+      hyprland
+      tray
+      bluetooth
+      network
+      mpris
+      wireplumber
     ];
   };
 }

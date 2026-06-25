@@ -1,4 +1,5 @@
-{ username, zenbrowser, ... }:
+username:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -23,7 +24,7 @@
     homeDirectory = "/home/${username}";
 
     packages = [
-      zenbrowser
+      inputs.zenbrowser.packages.${pkgs.system}.default
     ];
 
     stateVersion = "26.05";

@@ -1,7 +1,7 @@
-{ lib, pkgs, nvchad, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
-  imports = [ nvchad.homeManagerModules.default ];
+  imports = [ inputs.nvchad.homeManagerModules.default ];
 
   programs.nvchad = {
     enable = true;
