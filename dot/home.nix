@@ -5,6 +5,7 @@
     ./fonts.nix
     ./pointers.nix
     ./theme.nix
+    ./mimeapps.nix
     ./editor/nvim.nix
     ./terminals/kitty/kitty.nix
     ./hyprland/hyprland.nix
