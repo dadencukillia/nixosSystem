@@ -30,7 +30,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs.inputs = inputs;
+            home-manager.extraSpecialArgs = {
+              privatePkg = ./private/private.nix; # keep there your private adjustments
+              inherit inputs;
+            };
 
             home-manager.users = {
               ${dotOpts.username} = import ./dot/home.nix dotOpts.username;

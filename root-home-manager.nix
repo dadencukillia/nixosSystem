@@ -29,4 +29,16 @@
     })
     vim.lsp.enable("nixd")
   '';
+
+  programs.nvchad.extraPlugins = ''
+    return {
+      "nvim-tree/nvim-tree.lua",
+      opts = {
+        git = {
+          enable = true,
+          ignore = false,
+        },
+      },
+    }
+  '';
 }

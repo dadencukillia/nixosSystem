@@ -1,5 +1,5 @@
 username:
-{ pkgs, inputs, ... }:
+{ privatePkg, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -15,9 +15,9 @@ username:
     ./notifications/dunst.nix
     ./bar/ags.nix
     ./software/software.nix
-
-    ./personalOptions/personalOptions.nix
-  ];
+  ]
+  # keep here your private adjustments:
+  ++ lib.optional (builtins.pathExists privatePkg) privatePkg;
 
   home = {
     inherit username;
