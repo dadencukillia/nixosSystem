@@ -2,8 +2,8 @@ import { Gtk } from "ags/gtk4";
 import { createPoll } from "ags/time";
 
 export function Time() {
-  const time = createPoll("", 2000, "date \"+%H:%M\"")
-  const date = createPoll("", 2000, "date \"+%b %d\"")
+  const time = createPoll("", 2_000, "date \"+%H:%M\"")
+  const date = createPoll("", 60_000, "date \"+%b %d\"")
 
   return (
     <box
