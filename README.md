@@ -19,3 +19,13 @@ My personal NixOS dots
 ## Screenshots
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3707cc88-7582-4f39-9a73-c95f7d08e7b4" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7cc1c44d-4144-4c96-a89d-7236b3526420" />
+
+## How to use
+1. Clone the repository into your `/etc/nixos`
+    ```sh
+    git clone https://github.com/dadencukillia/nixosSystem.git
+    ```
+2. Change `options.nix` variables values on your own
+3. Type `nixos-rebuild switch --flake "path:/etc/nixos#linuxSystem"` in your terminal (or the tty)
+4. For personal changes your can create the `/etc/nixos/private/private.nix` file
+5. Enjoy!
