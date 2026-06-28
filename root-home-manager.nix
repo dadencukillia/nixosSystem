@@ -17,8 +17,6 @@
     ];
 
     custom.nvchad.extraConfig = [''
-      vim.opt.wrap = false
-
       vim.lsp.config.nixd = {
         cmd = { '${ pkgs.nixd }/bin/nixd' },
         root_markers = { 'flake.nix' },
