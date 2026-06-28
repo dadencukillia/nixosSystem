@@ -5,40 +5,38 @@
     ./dot/editor/nvim.nix
   ];
 
-  home = {
-    username = "root";
-    homeDirectory = "/root";
-    stateVersion = "26.05";
-  };
+  config = {
+    home = {
+      username = "root";
+      homeDirectory = "/root";
+      stateVersion = "26.05";
+    };
 
-  programs.nvchad.extraPackages = with pkgs; [
-    nixd
-  ];
+    programs.nvchad.extraPackages = [
+      pkgs.nixd
+    ];
 
-  programs.nvchad.extraConfig = ''
-    vim.opt.wrap = false
-    local on_attach = require("nvchad.configs.lspconfig").on_attach
-    local capabilities = require("nvchad.configs.lspconfig").capabilities
+    custom.nvchad.extraConfig = [''
+      vim.opt.wrap = false
 
-    vim.lsp.config("nixd", {
-      cmd = { 'nixd' },
-      root_markers = { 'flake.nix' },
-      filetypes = { 'nix' },
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-    vim.lsp.enable("nixd")
-  '';
+      vim.lsp.config.nixd = {
+        cmd = { 'nixd' },
+        root_markers = { 'flake.nix' },
+        filetypes = { 'nix' },
+      }
+      vim.lsp.enable("nixd")
+    ''];
 
-  programs.nvchad.extraPlugins = ''
-    return {
-      "nvim-tree/nvim-tree.lua",
-      opts = {
-        git = {
-          enable = true,
-          ignore = false,
+    custom.nvchad.extraPlugins = [''
+      {
+        "nvim-tree/nvim-tree.lua",
+        opts = {
+          git = {
+            enable = true,
+            ignore = false,
+          },
         },
-      },
-    }
-  '';
+      }
+    ''];
+  };
 }
