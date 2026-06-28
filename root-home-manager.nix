@@ -20,7 +20,7 @@
       vim.opt.wrap = false
 
       vim.lsp.config.nixd = {
-        cmd = { 'nixd' },
+        cmd = { '${ pkgs.nixd }/bin/nixd' },
         root_markers = { 'flake.nix' },
         filetypes = { 'nix' },
       }
